@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     sudo apt-get update \\
     && sudo add-apt-repository -y ppa:brightbox/ruby-ng \\
     && sudo apt-get install -y ruby2.1 git \\
-    && sudo gem2.0 i bundler --no-rdoc --no-ri \\
+    && sudo gem i bundler --no-rdoc --no-ri \\
     && sudo apt-get install nfs-common portmap
   CMD
 
@@ -24,5 +24,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
-  config.vm.synced_folder "./src", "/opt", :nfs => true, :create => true
+  config.vm.synced_folder "./src", "/opt/src", :nfs => true, :create => true
 end
