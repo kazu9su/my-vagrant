@@ -5,7 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box      = "ubuntu/trusty64"
+  config.vm.box      = "ubuntu/xenial64"
 
   config.vm.hostname = "personal-vagrant"
   config.vm.network "private_network", ip: "192.168.33.10"
@@ -13,8 +13,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "sync/", "/srv/sync", create: true
 
   config.vm.provision "shell", inline: <<-CMD
-    sudo apt-get update \\
-    && sudo add-apt-repository -y ppa:brightbox/ruby-ng \\
+    sudo add-apt-repository -y ppa:brightbox/ruby-ng \\
+    && sudo apt-get update \\
     && sudo apt-get install -y ruby2.1 git \\
     && sudo gem i bundler --no-rdoc --no-ri
   CMD
