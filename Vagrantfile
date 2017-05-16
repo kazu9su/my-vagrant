@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", inline: <<-CMD
     sudo add-apt-repository -y ppa:brightbox/ruby-ng \\
     && sudo apt-get update \\
-    && sudo apt-get install -y ruby2.1 git \\
+    && sudo apt-get install -y ruby2.1 git make \\
     && sudo gem i bundler --no-rdoc --no-ri
   CMD
 
